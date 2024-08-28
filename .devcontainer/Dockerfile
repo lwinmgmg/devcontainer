@@ -1,4 +1,4 @@
-FROM python:3.12.5-bookworm
+FROM golang:1.23-bookworm
 
 ARG USER=vscode
 ARG UID=1000
@@ -11,6 +11,4 @@ RUN groupadd --gid ${UID} ${USER} \
 
 USER $USER
 
-RUN pip install poetry
-
-CMD [ "poetry" "install" ]
+CMD [ "go" "get" ]

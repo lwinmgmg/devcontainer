@@ -16,11 +16,14 @@
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"postStartCommand": "go get",
+	"postStartCommand": "ls package.json && npm install || npm init",
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"golang.Go"
+				"xabikos.JavaScriptSnippets",
+				"ms-vscode.vscode-typescript-next",
+				"mgmcdermott.vscode-language-babel",
+				"ms-vscode.js-debug-nightly"
 			]
 		}
 	}

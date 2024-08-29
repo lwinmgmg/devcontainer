@@ -1,4 +1,8 @@
-FROM golang:1.23-bookworm
+FROM node:22-bookworm
+
+# Change node user's group id
+RUN groupmod -g 1001 node \
+  && usermod -u 1001 -g 1001 node
 
 ARG USER=vscode
 ARG UID=1000
@@ -11,4 +15,4 @@ RUN groupadd --gid ${UID} ${USER} \
 
 USER $USER
 
-CMD [ "go" "get" ]
+CMD [ "npm" "init" ]
